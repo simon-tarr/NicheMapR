@@ -590,7 +590,7 @@ micro_global <- function(loc = "Madison, Wisconsin USA", timeinterval = 12,
       }
     }
     # load global climate files
-    gcfolder<-paste(.libPaths()[1],"/gcfolder.rda",sep="")
+    gcfolder<-paste0(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"),"/wd/gcfolder.rda",sep="")
     if(file.exists(gcfolder)==FALSE){
       message("You don't appear to have the global climate data set - \n run function get.global.climate(folder = 'folder you want to put it in') .....\n exiting function micro_global")
       opt <- options(show.error.messages=FALSE)
@@ -600,7 +600,7 @@ micro_global <- function(loc = "Madison, Wisconsin USA", timeinterval = 12,
     load(gcfolder)
 
     message('extracting climate data \n')
-    global_climate<-raster::brick(paste(folder,"/global_climate.nc",sep=""))
+    global_climate<-raster::brick(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), "/wd","/global_climate.nc",sep=""))
     CLIMATE <- raster::extract(global_climate,x)
     ALTT<-as.numeric(CLIMATE[,1]) # convert from km to m
     delta_elev <- 0
@@ -641,7 +641,7 @@ micro_global <- function(loc = "Madison, Wisconsin USA", timeinterval = 12,
     CCMAXX <- CCMINN
     if(runmoist==0){
       # extract soil moisture
-      soilmoisture<-suppressWarnings(raster::brick(paste(folder,"/soilw.mon.ltm.v2.nc",sep="")))
+      soilmoisture<-suppressWarnings(raster::brick(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), "/wd","/soilw.mon.ltm.v2.nc",sep="")))
       message("extracting soil moisture data")
       SoilMoist<-raster::extract(soilmoisture,x)/1000 # this is originally in mm/m
     }
