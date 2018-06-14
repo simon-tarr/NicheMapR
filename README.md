@@ -20,3 +20,8 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# Notes on this version of NicheMapR
+This version of NicheMapR has been forked from mrke/NicheMapR shortly after the release of Linux support for this package. The file R/micro_global.R has been updated for use with Microsoft Azure so that, after package installation on a cluster, R knows where to access globalclimate.nc and soilw.mon.ltm.v2.nc.
+
+Please contact Simon Tarr for more information.
