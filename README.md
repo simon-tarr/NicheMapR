@@ -21,7 +21,16 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+-----------------------------------------------------------------------------------------------
+
 # Notes on this version of NicheMapR
-This version of NicheMapR has been forked from mrke/NicheMapR shortly after the release of Linux support for this package. The file R/micro_global.R has been updated for use with Microsoft Azure so that, after package installation on a cluster, R knows where to access globalclimate.nc and soilw.mon.ltm.v2.nc.
+## Master Branch
+This version of NicheMapR has been forked from mrke/NicheMapR shortly after the release of Linux support for this package. The file R/micro_global.R has been updated for use with Microsoft Azure so that, after package installation on a cluster, R knows where to access global_climate.nc and soilw.mon.ltm.v2.nc.
+
+## Custom Climate Database Branch
+The original climate layers in global_climate.nc (after running build.global.climate()) were multipled by 10 in order to turn decimals into integers (reducing overall file sizes). I have elected to keep my custom climate database(es) in their original decimal format and therefore do not need to be divided by 10. As a result, lines 610-625 in micro_global.R have been updated by removing the /10 commands after importing global_climate.nc. This ensures that there are not two rounds of division e.g. 325c -> 32.5c -> 3.25c.
+
+The original Linux port created by https://github.com/rafaqz/NicheMapR/ did not contain Kearney's recent changes which corrects RH after adibiatic lapse rate (release: https://github.com/mrke/NicheMapR/commit/8219492870100d5d68bb761da60d7b48413552c8; lines 626 - 636). I have deleted this code so that this custom climate db branch represents the original Linux port.
 
 Please contact Simon Tarr for more information.
+
