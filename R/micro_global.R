@@ -280,7 +280,7 @@
 #'  }
 #'}
 #' @export
-micro_global <- function(loc = "Madison, Wisconsin USA", timeinterval = 12,
+micro_global <- function(loc = "Madison, Wisconsin USA", decade = 1, timeinterval = 12,
   nyears = 1, soiltype = 4, REFL = 0.15, elev = NA, slope = 0, aspect = 0,
   lapse_max = 0.0077, lapse_min = 0.0039, DEP=c(0, 2.5, 5, 10, 15, 20, 30, 50, 100, 200),
   minshade = 0,maxshade = 90, Refhyt = 1.2, Usrhyt = 0.01, Z01 = 0, Z02 = 0, ZH1 = 0,
@@ -600,7 +600,7 @@ micro_global <- function(loc = "Madison, Wisconsin USA", timeinterval = 12,
     load(gcfolder)
 
     message('extracting climate data \n')
-    global_climate<-raster::brick(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), "/wd","/global_climate.nc",sep=""))
+    global_climate<-raster::brick(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), "/wd","/global_climate_", decade,".nc",sep=""))
     CLIMATE <- raster::extract(global_climate,x)
     ALTT<-as.numeric(CLIMATE[,1]) # convert from km to m
     delta_elev <- 0
