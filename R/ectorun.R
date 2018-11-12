@@ -46,7 +46,9 @@ ectorun <- function(ecto) {
 
       }
   } else if (os == "Linux") {
-      libpath="wd/NicheMapR/libs/linux/ECTOTHERM.so"
+      libpath="NicheMapR/libs/linux/ECTOTHERM.so"
+
+
   } else if (os == "Darwin") {
       libpath='/NicheMapR/libs/mac/ECTOTHERM.so'
   }
