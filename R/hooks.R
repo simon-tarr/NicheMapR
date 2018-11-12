@@ -7,8 +7,8 @@
 }
 
 handleLibs <- function(action) {
-  # Load/Unload dynamic libraries manually. 
-  # This is a workaround as useDynLib() does not easily handle mac and linux 
+  # Load/Unload dynamic libraries manually.
+  # This is a workaround as useDynLib() does not easily handle mac and linux
   # libraries with the same name and extension
   os = Sys.info()["sysname"]
   if (os == "Windows") {
@@ -20,8 +20,8 @@ handleLibs <- function(action) {
           ecto_path = "/NicheMapR/libs/win/i386/ectotherm.dll"
       }
   } else if (os == "Linux") {
-      micro_path = "/NicheMapR/libs/linux/MICROCLIMATE.so"
-      ecto_path = "/NicheMapR/libs/linux/ECTOTHERM.so"
+      micro_path = "$AZ_BATCH_NODE_SHARED_DIR/NicheMapR/libs/linux/MICROCLIMATE.so"
+      ecto_path = "$AZ_BATCH_NODE_SHARED_DIR/NicheMapR/libs/linux/ECTOTHERM.so"
   } else if (os == "Darwin") {
       micro_path = "/NicheMapR/libs/mac/MICROCLIMATE.so"
       ecto_path = "/NicheMapR/libs/mac/ECTOTHERM.so"

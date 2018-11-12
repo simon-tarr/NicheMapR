@@ -44,7 +44,7 @@ ectorun <- function(ecto) {
         libpath='/NicheMapR/libs/win/i386/ectotherm.dll'
       }
   } else if (os == "Linux") {
-      libpath='/NicheMapR/libs/linux/ECTOTHERM.so'
+      libpath='$AZ_BATCH_NODE_SHARED_DIR/NicheMapR/libs/linux/ECTOTHERM.so'
   } else if (os == "Darwin") {
       libpath='/NicheMapR/libs/mac/ECTOTHERM.so'
   }
