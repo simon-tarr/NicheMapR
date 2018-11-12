@@ -41,10 +41,12 @@ ectorun <- function(ecto) {
       if (R.Version()$arch=="x86_64") {
         libpath='/NicheMapR/libs/win/x64/ectotherm.dll'
       } else {
-        libpath='/NicheMapR/libs/win/i386/ectotherm.dll'
+        #libpath=paste0(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), '/wd/NicheMapR/libs/linux/ECTOTHERM.so'))
+        libpath='/wd/NicheMapR/libs/linux/ECTOTHERM.so'
+
       }
   } else if (os == "Linux") {
-      libpath="/mnt/batch/tasks/shared/R/packages/NicheMapR/libs/linux/ECTOTHERM.so"
+      libpath="wd/NicheMapR/libs/linux/ECTOTHERM.so"
   } else if (os == "Darwin") {
       libpath='/NicheMapR/libs/mac/ECTOTHERM.so'
   }

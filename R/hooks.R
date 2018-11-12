@@ -20,8 +20,11 @@ handleLibs <- function(action) {
           ecto_path = "/NicheMapR/libs/win/i386/ectotherm.dll"
       }
   } else if (os == "Linux") {
-      micro_path = "/mnt/batch/tasks/shared/R/packages/NicheMapR/libs/linux/MICROCLIMATE.so"
-      ecto_path =  "/mnt/batch/tasks/shared/R/packages/NicheMapR/libs/linux/ECTOTHERM.so"
+      #micro_path = paste0(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), '/wd/NicheMapR/libs/linux/MICROCLIMATE.so'))
+      micro_path='/wd/NicheMapR/libs/linux/MICROCLIMATE.so'
+      #ecto_path =  paste0(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), '/wd/NicheMapR/libs/linux/ECTOTHERM.so'))
+      ecto_path='/wd/NicheMapR/libs/linux/ECTOTHERM.so'
+
   } else if (os == "Darwin") {
       micro_path = "/NicheMapR/libs/mac/MICROCLIMATE.so"
       ecto_path = "/NicheMapR/libs/mac/ECTOTHERM.so"
