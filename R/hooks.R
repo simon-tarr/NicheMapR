@@ -23,8 +23,8 @@ handleLibs <- function(action) {
 
   # Linux here
   else if (os == "Linux") {
-    micro_path = "NicheMapR/libs/linux/MICROCLIMATE.so"
-    ecto_path = "NicheMapR/libs/linux/ECTOTHERM.so"
+    micro_path = "/NicheMapR/libs/linux/MICROCLIMATE.so"
+    ecto_path = "/NicheMapR/libs/linux/ECTOTHERM.so"
   }
 
 
