@@ -32,7 +32,8 @@ microclimate <- function(micro) {
         libpath='/NicheMapR/libs/win/i386/microclimate.dll'
       }
   } else if (os == "Linux") {
-      libpath=paste0(Sys.getenv("AZ_BATCH_JOB_PREP_WORKING_DIR"), '/NicheMapR/libs/linux/MICROCLIMATE.so')
+      libpath=paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), "/wd/MICROCLIMATE.so")
+
   } else if (os == "Darwin") {
       libpath='/NicheMapR/libs/mac/MICROCLIMATE.so'
   }
