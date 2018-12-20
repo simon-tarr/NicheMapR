@@ -600,7 +600,7 @@ micro_global <- function(loc = "Madison, Wisconsin USA", decade = 1, model="gfdl
     load(gcfolder)
 
     message('extracting climate data \n')
-    global_climate<-raster::brick(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), "/wd","/global_climate_", model, "_", rcp, "_", decade,".nc",sep=""))
+    global_climate<-raster::brick(paste(Sys.getenv("AZ_BATCH_NODE_STARTUP_DIR"), "/wd","/global_climate.nc", sep=""))
     CLIMATE <- raster::extract(global_climate,x)
     ALTT<-as.numeric(CLIMATE[,1]) # convert from km to m
     delta_elev <- 0
